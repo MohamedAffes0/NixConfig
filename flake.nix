@@ -31,6 +31,12 @@
       url = "github:caelestia-dots/caelestia";
       flake = false;
     };
+
+    # Neovim config (init.lua and lua/), linked into ~/.config/nvim.
+    neovim-dots = {
+      url = "github:amanullahmenjli/neovim-dots";
+      flake = false;
+    };
   };
 
   outputs = {
@@ -39,6 +45,7 @@
     home-manager,
     caelestia-shell,
     caelestia-dots,
+    neovim-dots,
     qylock,
     skwd-wall,
     zen-browser,
@@ -60,7 +67,7 @@
         home-manager.nixosModules.home-manager
       ];
       specialArgs = {
-        inherit caelestia caelestia-dots;
+        inherit caelestia caelestia-dots neovim-dots;
         inherit (caelestia-shell) homeManagerModules;
       };
     };

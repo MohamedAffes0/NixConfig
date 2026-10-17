@@ -139,6 +139,22 @@
         "type": "github"
       }
     },
+    "neovim-dots": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1790683638,
+        "narHash": "sha256-1q14nFsk58iDydAr3fLWESlIOoXAzb9Wmy6GyVaResg=",
+        "owner": "amanullahmenjli",
+        "repo": "neovim-dots",
+        "rev": "40a2d72803907d5c0db3b71e055d959573035b7a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "amanullahmenjli",
+        "repo": "neovim-dots",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1791956154,
@@ -219,6 +235,7 @@
         "caelestia-dots": "caelestia-dots",
         "caelestia-shell": "caelestia-shell",
         "home-manager": "home-manager",
+        "neovim-dots": "neovim-dots",
         "nixpkgs": "nixpkgs",
         "qylock": "qylock",
         "skwd-wall": "skwd-wall",

@@ -9,6 +9,7 @@ in {
   imports = [
     homeManagerModules.default
     ./ghostty.nix
+    ./neovim.nix
   ];
 
   home.stateVersion = "26.05";

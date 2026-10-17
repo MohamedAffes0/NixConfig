@@ -3,6 +3,7 @@
   pkgs,
   caelestia,
   caelestia-dots,
+  neovim-dots,
   homeManagerModules,
   ...
 }: {
@@ -178,7 +179,7 @@
     useGlobalPkgs = true;
     useUserPackages = true;
     backupFileExtension = "backup";
-    extraSpecialArgs = {inherit caelestia caelestia-dots homeManagerModules;};
+    extraSpecialArgs = {inherit caelestia caelestia-dots neovim-dots homeManagerModules;};
     users.mohamed_affes = import ../home/default.nix;
   };
 
