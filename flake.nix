@@ -25,6 +25,12 @@
       url = "github:caelestia-dots/shell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # Caelestia's Hyprland config (hypr/*.lua), linked into ~/.config/hypr.
+    caelestia-dots = {
+      url = "github:caelestia-dots/caelestia";
+      flake = false;
+    };
   };
 
   outputs = {
@@ -32,6 +38,7 @@
     nixpkgs,
     home-manager,
     caelestia-shell,
+    caelestia-dots,
     qylock,
     skwd-wall,
     zen-browser,
@@ -53,7 +60,7 @@
         home-manager.nixosModules.home-manager
       ];
       specialArgs = {
-        inherit caelestia;
+        inherit caelestia caelestia-dots;
         inherit (caelestia-shell) homeManagerModules;
       };
     };

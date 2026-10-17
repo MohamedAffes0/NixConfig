@@ -2,6 +2,7 @@
   config,
   pkgs,
   caelestia,
+  caelestia-dots,
   homeManagerModules,
   ...
 }: {
@@ -86,6 +87,8 @@
   # ------------------------------------------------------------------ Graphics
   # Required for Hyprland/Quickshell (OpenGL/Vulkan).
   hardware.graphics.enable = true;
+  # VA-API video decoding on the Intel GPU, so video doesn't wake the NVIDIA GPU.
+  hardware.graphics.extraPackages = [pkgs.intel-media-driver];
 
   programs.hyprland = {
     enable = true;
@@ -124,7 +127,10 @@
   programs.dconf.enable = true;
 
   # Wayland hint for Electron/Chromium apps.
-  environment.sessionVariables.NIXOS_OZONE_WL = "1";
+  environment.sessionVariables = {
+    NIXOS_OZONE_WL = "1";
+    LIBVA_DRIVER_NAME = "iHD";
+  };
   # ---------------------------------------------------------------------- Nvidia
   services.xserver.videoDrivers = ["nvidia"];
 
@@ -133,6 +139,17 @@
     open = true;
     nvidiaSettings = true;
     package = config.boot.kernelPackages.nvidiaPackages.stable;
+    # Hybrid graphics: the Intel GPU drives the desktop and the NVIDIA GPU
+    # sleeps until an app is started with `nvidia-offload <app>`.
+    powerManagement.finegrained = true;
+    prime = {
+      offload = {
+        enable = true;
+        enableOffloadCmd = true;
+      };
+      intelBusId = "PCI:0:2:0";
+      nvidiaBusId = "PCI:1:0:0";
+    };
   };
 
   # ---------------------------------------------------------------------- Printing
@@ -161,7 +178,7 @@
     useGlobalPkgs = true;
     useUserPackages = true;
     backupFileExtension = "backup";
-    extraSpecialArgs = {inherit caelestia homeManagerModules;};
+    extraSpecialArgs = {inherit caelestia caelestia-dots homeManagerModules;};
     users.mohamed_affes = import ../home/default.nix;
   };
 

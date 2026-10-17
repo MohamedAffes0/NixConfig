@@ -24,6 +24,22 @@
         "type": "github"
       }
     },
+    "caelestia-dots": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1792228345,
+        "narHash": "sha256-2J4lgLSEQotdziRzkWqBY5x/OOCWF4+z2wr8KdCukEo=",
+        "owner": "caelestia-dots",
+        "repo": "caelestia",
+        "rev": "639dd6e55b8d0e95aec12499720fb6c434548022",
+        "type": "github"
+      },
+      "original": {
+        "owner": "caelestia-dots",
+        "repo": "caelestia",
+        "type": "github"
+      }
+    },
     "caelestia-shell": {
       "inputs": {
         "caelestia-cli": "caelestia-cli",
@@ -200,6 +216,7 @@
     },
     "root": {
       "inputs": {
+        "caelestia-dots": "caelestia-dots",
         "caelestia-shell": "caelestia-shell",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
