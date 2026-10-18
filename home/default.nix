@@ -20,6 +20,12 @@ in {
     systemd.enable = true;
   };
 
+  # File manager
+  programs.yazi = {
+    enable = true;
+    enableFishIntegration = true;
+  };
+
   wayland.windowManager.hyprland = {
     enable = true;
     configType = "lua";

@@ -39,50 +39,52 @@
 
   # ----------------------------------------------------------------- Utilities
   environment.systemPackages = with pkgs; [
-    git
+    # Utilities
     curl
     wget
     btop
-    firefox
+
+    # Terminals
     ghostty
+
+    # Web browsers
+    firefox
+    google-chrome
 
     # zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
 
-    upscayl
-
+    # Image and video viewers
     loupe
     showtime
-    rewaita
-    refine
+    upscayl
+
+    # GNOME applications and customization
+    nautilus
     gnome-tweaks
+    refine
+    rewaita
+
+    # Themes and icons
     adwaita-icon-theme
     papirus-icon-theme
-
-    easyeffects
-
     morewaita-icon-theme
 
-    # Programming
-    nixd
-    alejandra
+    # Audio
+    easyeffects
 
-    google-chrome
-
-    kopuz
-
-    nautilus
+    # File managers
     kdePackages.dolphin
+    nautilus
 
-    # Programming
+    # Development tools
+    git
     nixd
     alejandra
-
     vscode
-    google-chrome
     zed-editor
 
-    nautilus
-    kdePackages.dolphin
+    # Other applications
+    kopuz
   ];
 
   # ------------------------------------------------------------------ Graphics
