@@ -63,6 +63,7 @@
         ./modules/programming.nix
         ./modules/sddm.nix
         ./modules/bluetooth.nix
+        ./modules/storage.nix
         qylock.nixosModules.default
         home-manager.nixosModules.home-manager
       ];
